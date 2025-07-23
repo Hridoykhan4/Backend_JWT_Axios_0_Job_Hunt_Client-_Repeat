@@ -37,7 +37,7 @@ const MyPostedJobs = () => {
                 <td>{job?.applicantCount > 0 ? job?.applicantCount : 0}</td>
                 <td>
                   <Link to={`/viewApplications/${job?._id}`}>
-                    View Applications
+                    <button className="btn btn-link">View Applications</button>
                   </Link>
                 </td>
               </tr>

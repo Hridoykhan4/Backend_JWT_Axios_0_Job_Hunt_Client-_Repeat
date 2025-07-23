@@ -52,18 +52,29 @@ const router = createBrowserRouter([
 
       {
         path: "/add-jobs",
-        element: <PrivateRoute><AddJob></AddJob></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddJob></AddJob>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/my-jobs',
-        element: <PrivateRoute>
-          <MyPostedJobs></MyPostedJobs>
-        </PrivateRoute>
+        path: "/my-jobs",
+        element: (
+          <PrivateRoute>
+            <MyPostedJobs></MyPostedJobs>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/viewApplications/:jobId',
-        element: <PrivateRoute><ViewApplications></ViewApplications></PrivateRoute>,
-        loader: () => fetch(``)
+        path: "/viewApplications/:jobId",
+        element: (
+          <PrivateRoute>
+            <ViewApplications></ViewApplications>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/applications/jobs/${params.jobId}`),
       },
       {
         path: "/application/apply/:id",
