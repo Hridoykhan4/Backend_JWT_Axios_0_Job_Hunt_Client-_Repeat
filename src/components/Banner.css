@@ -1,0 +1,9 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff700; /* Pushpa fire yellow */
+  font-weight: bold;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff5733; /* Pushpa fire orange-red */
+}
