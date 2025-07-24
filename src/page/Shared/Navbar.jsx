@@ -83,10 +83,10 @@ const Navbar = () => {
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="ms-auto  hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-3">
+      <div className=" gap-3">
         {user ? (
           <button onClick={userLogOut} className="btn">
             Log out

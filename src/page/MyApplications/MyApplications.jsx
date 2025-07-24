@@ -1,24 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuthValue from "../../hooks/useAuthValue";
+import { Link } from "react-router-dom";
 
 const MyApplications = () => {
   const [applications, setMyApplications] = useState([]);
   const { user } = useAuthValue();
 
-  const handleDeleteApplications = (id) => {
-    axios.delete(`http://localhost:5000/job-applications/${id}`).then((res) => {
-        
-      if (res?.data.deletedCount > 0) {
-        alert("Successfully Deleted");
-        setMyApplications(applications.filter((app) => app?._id !== id));
-      }
-    });
+  const handleDeleteApplications = (id, jobId) => {
+    axios
+      .delete(`http://localhost:5000/job-applications/${id}`, {
+        data: { jobId },
+      })
+      .then((res) => {
+        if (res?.data.deletedCount > 0) {
+          alert("Successfully Deleted");
+          setMyApplications(applications.filter((app) => app?._id !== id));
+        }
+      });
   };
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/job-applications/${user.email}`)
+      .get(`http://localhost:5000/job-applications/${user.email}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setMyApplications(res.data);
       })
@@ -65,10 +71,21 @@ const MyApplications = () => {
                 </td>
                 <td>{application?.applicationDeadline}</td>
                 <td>{new Date(application?.appliedAt).toLocaleString()}</td>
-                <th>
+                <th className="flex justify-center align-bottom items-center gap-2">
+                  <Link
+                    to={`/updateMyApplication/${application?._id}`}
+                    className="btn btn-success btn-xs"
+                  >
+                    Update
+                  </Link>
                   <button
-                    onClick={() => handleDeleteApplications(application?._id)}
-                    className="btn btn-ghost btn-xs"
+                    onClick={() =>
+                      handleDeleteApplications(
+                        application?._id,
+                        application?.jobId
+                      )
+                    }
+                    className="btn btn-error btn-xs"
                   >
                     Delete
                   </button>

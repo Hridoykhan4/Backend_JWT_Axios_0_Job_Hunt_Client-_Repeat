@@ -13,7 +13,6 @@ const ViewApplications = () => {
         status,
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           alert(`Updated`);
           setAppliedJobs((prev) =>
@@ -22,7 +21,7 @@ const ViewApplications = () => {
         }
       });
   };
-git
+
   return (
     <div>
       <h3 className="text-center text-3xl text-red-600">
