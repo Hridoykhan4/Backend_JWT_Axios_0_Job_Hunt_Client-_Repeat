@@ -12,6 +12,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
@@ -54,7 +55,24 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        const user = { email: currentUser?.email };
+        axios
+          .post("https://job-er-mare-salam-server.vercel.app/jwt", user, { withCredentials: true })
+          .then(() => {
+            // console.log(res.data);
+            setLoading(false);
+          })
+          .catch((err) => console.log(err));
+      } else {
+        axios
+          .post("https://job-er-mare-salam-server.vercel.app/logout", {}, { withCredentials: true })
+          .then(() => {
+            // console.log(res.data);
+            setLoading(false)
+          })
+          .catch((err) => console.log(err));
+      }
     });
 
     return () => {

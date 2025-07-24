@@ -40,7 +40,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/jobs/${params.id}`),
+          fetch(`https://job-er-mare-salam-server.vercel.app/jobs/${params.id}`),
       },
       {
         path: "/application-me",
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/applications/jobs/${params.jobId}`),
+          fetch(`https://job-er-mare-salam-server.vercel.app/applications/jobs/${params.jobId}`),
       },
       {
         path: "/updateMyApplication/:id",
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/applications/${params.id}`),
+          fetch(`https://job-er-mare-salam-server.vercel.app/applications/${params.id}`),
       },
       {
         path: "/application/apply/:id",
@@ -103,7 +103,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async () => {
-          const res = await axios.get(`http://localhost:5000/jobs?allJob=true`);
+          const res = await axios.get(`https://job-er-mare-salam-server.vercel.app/jobs?allJob=true`);
           return res.data;
         },
       },

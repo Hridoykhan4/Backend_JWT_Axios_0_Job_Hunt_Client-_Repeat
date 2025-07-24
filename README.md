@@ -1,12 +1,48 @@
-# React + Vite
+# 🔍 Job Hunter – Find Your Perfect Opportunity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Site](https://img.shields.io/badge/LIVE-DEMO-green?style=for-the-badge&logo=vercel)](https://job-hunter-rewind.web.app/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](#license)
+[![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)](#)
 
-Currently, two official plugins are available:
+> A sleek, responsive job hunting platform that simplifies the process of browsing, sorting, and applying for jobs — built with React, Tailwind CSS, and Firebase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Preview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👉 [https://job-hunter-rewind.web.app/](https://job-hunter-rewind.web.app/)
+
+---
+
+## ✨ Features
+
+- 🔐 Firebase Auth & Protected Routes
+- 📦 Filter & Sort Job Listings (by Salary, Deadline, etc.)
+- 📝 Apply to Jobs Instantly
+- 🎯 Admin Controls for Job Posting & Updates
+- 💬 Responsive Toasts & Alerts
+- 💅 Smooth Animations using `motion`
+- 🌙 Fully Responsive UI (Tailwind + DaisyUI)
+
+---
+
+## 🖼️ Tech Stack
+
+### Frontend
+
+- ⚛️ React 19
+- 🧩 React Router DOM v7
+- 💨 Tailwind CSS v4.1 with DaisyUI
+- 🌊 Swiper.js for Carousels
+- ⚡ Motion (Framer API) for animations
+- 🔥 Firebase Authentication
+
+### Backend
+
+- 🌐 Express.js
+- 🍃 MongoDB
+- 🛡️ JWT Authentication
+- 🧁 Cookie Parser & CORS
+- 📦 Dotenv Config
+
+---

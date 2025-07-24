@@ -10,7 +10,7 @@ const AllJob = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/jobs?searchQuery=${searchField.trim()}`)
+      .get(`https://job-er-mare-salam-server.vercel.app/jobs?searchQuery=${searchField.trim()}`)
       .then((res) => setJobs(res.data))
       .catch((err) => console.log(err));
   }, [searchField]);

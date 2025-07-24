@@ -1,7 +1,6 @@
 import { useState } from "react";
 import useAuthValue from "../../hooks/useAuthValue";
 import Social from "../Shared/Social";
-import axios from "axios";
 
 const SignIn = () => {
   const { signInUserByEmail, forgetPass } = useAuthValue();
@@ -42,16 +41,7 @@ const SignIn = () => {
     setError({ emailError: "", passwordError: "" });
 
     signInUserByEmail(email, password)
-      .then((res) => {
-        const email = res?.user?.email;
-        const user = { email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res);
-            console.log(res.data);
-          })
-          .catch((err) => console.log(err));
+      .then(() => {
         alert("Success");
       })
       .catch((err) => console.log(err));

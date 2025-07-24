@@ -20,14 +20,14 @@ const JobApply = () => {
 
     axios
       .get(
-        `http://localhost:5000/checkJobs?email=${user?.email}&jobId=${jobId}`
+        `https://job-er-mare-salam-server.vercel.app/checkJobs?email=${user?.email}&jobId=${jobId}`
       )
       .then((res) => {
         if (res.data.exists) {
           alert(`Already applied for the job`);
         } else {
           axios
-            .post("http://localhost:5000/job-applications", applyInfo)
+            .post("https://job-er-mare-salam-server.vercel.app/job-applications", applyInfo)
             .then((res) => {
               if (res.data.insertedId) {
                 alert(`Successfully applied for the job`);

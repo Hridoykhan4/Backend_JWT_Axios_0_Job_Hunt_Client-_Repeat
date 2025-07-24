@@ -9,7 +9,7 @@ const ViewApplications = () => {
   const handleStatusUpdate = (e, id) => {
     const status = e.target.value;
     axios
-      .patch(`http://localhost:5000/job-applications/${id}`, {
+      .patch(`https://job-er-mare-salam-server.vercel.app/job-applications/${id}`, {
         status,
       })
       .then((res) => {

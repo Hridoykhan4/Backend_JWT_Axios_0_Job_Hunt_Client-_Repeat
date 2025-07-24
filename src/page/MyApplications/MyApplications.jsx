@@ -2,14 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuthValue from "../../hooks/useAuthValue";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyApplications = () => {
   const [applications, setMyApplications] = useState([]);
   const { user } = useAuthValue();
+  const axiosSecure = useAxiosSecure();
+
+
 
   const handleDeleteApplications = (id, jobId) => {
     axios
-      .delete(`http://localhost:5000/job-applications/${id}`, {
+      .delete(`https://job-er-mare-salam-server.vercel.app/job-applications/${id}`, {
         data: { jobId },
       })
       .then((res) => {
@@ -21,15 +25,16 @@ const MyApplications = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/job-applications/${user.email}`, {
+   /*  axios
+      .get(`https://job-er-mare-salam-server.vercel.app/job-applications/${user.email}`, {
         withCredentials: true,
-      })
+      }) */
+     axiosSecure.get(`/job-applications/${user.email}`)
       .then((res) => {
         setMyApplications(res.data);
       })
       .catch((err) => console.log(err));
-  }, [user.email]);
+  }, [user.email, axiosSecure]);
 
   return (
     <div>

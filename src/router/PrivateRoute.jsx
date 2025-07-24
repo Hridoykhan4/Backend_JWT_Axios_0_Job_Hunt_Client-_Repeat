@@ -4,6 +4,7 @@ import useAuthValue from "../hooks/useAuthValue";
 const PrivateRoute = ({ children }) => {
   const { loading, user } = useAuthValue();
 
+
   if (loading) {
     return <h3>Loading</h3>;
   }

@@ -42,10 +42,10 @@ const Register = () => {
     setError({ emailError: "", passwordError: "" });
 
     registerUser(email, password)
-      .then((res) => {
+      .then(() => {
         updateNameInRegister(name)
           .then(() => {
-            console.log(res.user);
+            // console.log(res.user);
           })
           .catch((err) => console.log(err));
       })

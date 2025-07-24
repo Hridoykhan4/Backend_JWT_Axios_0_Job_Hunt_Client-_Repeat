@@ -8,7 +8,7 @@ const FeaturedJobs = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/jobs?featured=true`)
+      .get(`https://job-er-mare-salam-server.vercel.app/jobs?featured=true`)
       .then((res) => {
         setJobs(res.data);
       })

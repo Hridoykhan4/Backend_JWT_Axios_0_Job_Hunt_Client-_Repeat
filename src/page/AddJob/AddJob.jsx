@@ -38,7 +38,7 @@ const AddJob = () => {
       company_logo: form.company_logo.value,
     };
 
-    axios.post(`http://localhost:5000/jobs`, jobData).then((res) => {
+    axios.post(`https://job-er-mare-salam-server.vercel.app/jobs`, jobData).then((res) => {
       if (res.data.insertedId) {
         alert("Added");
         nav('/my-jobs')

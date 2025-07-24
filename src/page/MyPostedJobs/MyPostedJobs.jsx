@@ -8,7 +8,7 @@ const MyPostedJobs = () => {
   const { user } = useAuthValue();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/jobs?hr_email=${user?.email}`)
+      .get(`https://job-er-mare-salam-server.vercel.app/jobs?hr_email=${user?.email}`)
       .then((res) => {
         setMyJobs(res.data);
       });

@@ -22,7 +22,7 @@ const UpdateMyApplications = () => {
     };
     axios
       .put(
-        `http://localhost:5000/applicationUpdate/${application?._id}`,
+        `https://job-er-mare-salam-server.vercel.app/applicationUpdate/${application?._id}`,
         infoLinks
       )
       .then((res) => {
